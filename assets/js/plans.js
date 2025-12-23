@@ -334,3 +334,11 @@ function purchase(package, plan){
     // Redirect the user to the new URL
     window.location.href = "purchase.html?"+newURL;
 }
+
+
+window.addEventListener('load', () => {
+    console.log('working');
+    checkPlans(1, 'bronze', 'bronzePackage');
+    checkPlans(1, 'silver', 'silverPackage');
+    checkPlans(1, 'gold', 'goldPackage');
+});
