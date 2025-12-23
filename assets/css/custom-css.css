@@ -1,0 +1,48 @@
+#logo{
+    display: none !important;
+}
+.robot {
+    position: absolute !important;
+    bottom: 0;
+    width: 100%;
+    z-index: 2;
+    mix-blend-mode: exclusion;
+  }
+  .auto-container {
+    position: static;
+    max-width: 1530px;
+    padding: 0px 15px;
+    margin: 0 auto;
+  }
+  .banner-one_content {
+    position: relative;
+    z-index: 2;
+  }
+  .banner-one_content-inner {
+    position: relative;
+  }
+  .banner-one_heading {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 80px;
+    color: var(--white-color);
+    text-transform: uppercase;
+  }
+  .banner-one_text {
+    position: relative;
+    font-size: 30px;
+    line-height: 40px;
+    padding-top: 20px;
+    padding-right: 180px;
+    color: var(--white-color);
+    border-top: 1px solid #540045;
+  }
+  .banner-one_text-two {
+    position: relative;
+    font-size: 30px;
+    line-height: 40px;
+    padding-bottom: 20px;
+    padding-right: 180px;
+    color: var(--white-color);
+    border-bottom: 1px solid var(--white-color);
+  }
