@@ -1,3 +1,131 @@
+// -------------------- HELPERS --------------------
+function safeStr(v) {
+  return (v === undefined || v === null) ? "" : String(v).trim();
+}
+
+function decodeB64Safe(v) {
+  try { return atob(safeStr(v)); } catch { return safeStr(v); }
+}
+
+function periodLabel(p) {
+  const map = { "1": "1 Month", "3": "3 Months", "6": "6 Months", "12": "1 Year" };
+  return map[String(p)] || safeStr(p);
+}
+
+function nowTimestampIST() {
+  // User timezone: Asia/Kolkata
+  const d = new Date();
+  const fmt = new Intl.DateTimeFormat('en-IN', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true
+  });
+  return fmt.format(d) + " IST";
+}
+
+function isValidEmail(email) {
+  // pragmatic validation (avoids over-rejecting real emails)
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i.test(email);
+}
+
+function isValidIndiaPhone(phone) {
+  // Accept: 10-digit mobile starting 6-9, or +91 / 91 prefix with optional spaces/dashes
+  const digits = phone.replace(/\D/g, "");
+  const normalized = digits.startsWith("91") && digits.length === 12 ? digits.slice(2) : digits;
+  return /^[6-9]\d{9}$/.test(normalized);
+}
+
+function normalizeIndiaPhone(phone) {
+  const digits = phone.replace(/\D/g, "");
+  return digits.startsWith("91") && digits.length === 12 ? digits.slice(2) : digits;
+}
+
+function openWhatsApp(message) {
+  const phone = "917993003157"; // +91 7993003157
+  const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+// -------------------- FORM SUBMIT --------------------
+document.getElementById("purchasePackageForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const formData = new FormData(form);
+
+  const companyName = safeStr(formData.get("companyName"));
+  const email = safeStr(formData.get("email"));
+  const contactNumberRaw = safeStr(formData.get("contactNumber"));
+  const city = safeStr(formData.get("address"));
+  const pkgEncoded = safeStr(formData.get("package"));
+  const periodValue = safeStr(formData.get("period"));
+
+  // -------------------- VALIDATION --------------------
+  // Email
+  if (!email || !isValidEmail(email)) {
+    alert("Please enter a valid email address.");
+    document.getElementById("email")?.focus();
+    return;
+  }
+
+  // Phone (India)
+  if (!contactNumberRaw || !isValidIndiaPhone(contactNumberRaw)) {
+    alert("Please enter a valid 10-digit Indian mobile number (starting with 6–9).");
+    document.getElementById("contactNumber")?.focus();
+    return;
+  }
+
+  const contactNumber = normalizeIndiaPhone(contactNumberRaw);
+
+  // -------------------- PACKAGE DECODE --------------------
+  const pkgDecoded = decodeB64Safe(pkgEncoded);
+  const pkgPretty =
+    pkgDecoded.toLowerCase() === "bronze" ? "Bronze Package" :
+    pkgDecoded.toLowerCase() === "silver" ? "Silver Package" :
+    pkgDecoded.toLowerCase() === "gold" ? "Gold Package" :
+    pkgDecoded;
+
+  const periodPretty = periodLabel(periodValue);
+  const timestamp = nowTimestampIST();
+
+  // -------------------- MESSAGE --------------------
+  const message =
+`New Purchase Enquiry (Website)
+Time: ${timestamp}
+
+Package: ${pkgPretty || "N/A"}
+Period: ${periodPretty || "N/A"}
+
+Company Name: ${companyName || "N/A"}
+Phone Number: ${contactNumber || "N/A"}
+Email: ${email || "N/A"}
+City: ${city || "N/A"}
+
+Please contact the customer for next steps.`;
+
+  // -------------------- OPEN WHATSAPP --------------------
+  openWhatsApp(message);
+
+  // -------------------- AUTO RESET --------------------
+  // Reset after opening WhatsApp (small delay avoids edge-case where some browsers block on immediate reset)
+  setTimeout(() => {
+    form.reset();
+    // Optional: also reset selects to defaults if needed (reset usually handles it)
+    // document.getElementById("package").value = "YnJvbnpl";
+    // document.getElementById("period").value = "1";
+  }, 300);
+});
+
+// ===================== RAZORPAY (INTENTIONALLY REMOVED) =====================
+// WhatsApp-only flow
+
+
+/*
+
 const encodedParams = atob(window.location.href.split('?')[1]);
 console.log(encodedParams);
 const urlParams = new URLSearchParams(encodedParams);
@@ -88,7 +216,7 @@ document.getElementById("purchasePackageForm").addEventListener("submit", async 
       sessionStorage.removeItem("b3JkZXJfaWQ");
     });
 
-    */
+    
  
   });
   
@@ -134,3 +262,6 @@ document.getElementById("purchasePackageForm").addEventListener("submit", async 
      sessionStorage.removeItem("order_id");
     });
   };
+
+
+  */
