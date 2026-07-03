@@ -8,7 +8,7 @@ function decodeB64Safe(v) {
 }
 
 function periodLabel(p) {
-  const map = { "1": "1 Month", "3": "3 Months", "6": "6 Months", "12": "1 Year" };
+  const map = { "6": "6 Months" };
   return map[String(p)] || safeStr(p);
 }
 
@@ -49,6 +49,30 @@ function openWhatsApp(message) {
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
   window.open(url, "_blank", "noopener,noreferrer");
 }
+
+function applyPackageSelectionFromQuery() {
+  const params = new URLSearchParams(window.location.search);
+  const packageParam = safeStr(params.get("package")).toLowerCase();
+  const periodParam = safeStr(params.get("period"));
+  const packageSelect = document.getElementById("package");
+  const periodSelect = document.getElementById("period");
+
+  const packageValues = {
+    bronze: "YnJvbnpl",
+    silver: "c2lsdmVy",
+    gold: "Z29sZA==",
+  };
+
+  if (packageSelect && packageValues[packageParam]) {
+    packageSelect.value = packageValues[packageParam];
+  }
+
+  if (periodSelect && periodParam) {
+    periodSelect.value = periodParam;
+  }
+}
+
+applyPackageSelectionFromQuery();
 
 // -------------------- FORM SUBMIT --------------------
 document.getElementById("purchasePackageForm").addEventListener("submit", function (e) {

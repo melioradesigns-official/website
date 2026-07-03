@@ -1381,57 +1381,87 @@ footer {
 }
 @media (max-width: 575px) {
   .hero-section-version2 {
-    padding: 105px 2px 75px;
+    min-height: 100vh;
+    padding: 134px 0 42px;
+    display: flex;
+    align-items: flex-start;
+    background: var(--white);
+  }
+  .hero-section-version2 .container {
+    width: 100%;
+    padding-left: 14px;
+    padding-right: 14px;
   }
   .hero-section-version2 .banner-v2-thumb img {
     display: block;
+    width: 100%;
+    border-radius: 18px;
   }
   .hero-section-version2 .banner-v2-thumb .hero-tag {
-    left: 20px;
-    top: 20px;
+    display: grid;
+    left: auto;
+    top: auto;
     position: initial;
-    bottom: initial;
-    gap: 10px;
+    bottom: auto;
+    max-width: none;
+    gap: 18px;
+    margin: 18px 0 0;
   }
   .hero-section-version2 .banner-v2-thumb .hero-tag li a {
-    background: var(--white);
+    background: transparent;
     color: var(--black);
-    border-color: var(--white);
-    font-weight: 500;
+    border: 0;
+    border-radius: 0;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 700;
   }
   .hero-section-version2 .banner-v2-thumb .hero-tag li a i {
     color: var(--black);
   }
   .hero-section-version2 .hero-v2-content {
-    margin-bottom: 36px;
+    display: block;
+    margin-bottom: 24px;
+  }
+  .hero-section-version2 .hero-v2-content h1 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
   .hero-section-version2 .hero-v2-content h1 .text-adjust {
-    gap: 10px;
-    margin-top: 0px;
+    gap: 0;
+    margin-top: 0;
+    vertical-align: top;
+    line-height: 0;
   }
   .hero-section-version2 .hero-v2-content h1 .text-adjust img {
-    width: 30px;
+    width: 28px;
+  }
+  .hero-section-version2 .hero-v2-content h1 .text-adjust .soft-star1,
+  .hero-section-version2 .hero-v2-content .step-textcircle {
+    display: none;
   }
   .hero-section-version2 .hero-v2-content span {
-    font-size: 36px;
-    line-height: 50px;
-    margin-top: 30px !important;
+    font-size: 30px;
+    line-height: 1.15;
+    margin-top: 0 !important;
   }
 }
 @media (max-width: 400px) {
   .hero-section-version2 .hero-v2-content {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
   .hero-section-version2 .hero-v2-content h1 .text-adjust {
-    gap: 10px;
-    margin-top: 0px;
+    gap: 0;
+    margin-top: 0;
   }
   .hero-section-version2 .hero-v2-content h1 .text-adjust img {
-    width: 30px;
+    width: 28px;
   }
   .hero-section-version2 .hero-v2-content span {
     font-size: 28px;
-    line-height: 50px;
+    line-height: 1.15;
   }
 }
 
@@ -3507,6 +3537,83 @@ footer {
   justify-content: flex-start !important;
 }
 
+.pricing-custom-wrap .package-card {
+  min-height: 650px;
+  align-content: flex-start;
+  position: relative;
+}
+.pricing-custom-wrap .package-card.package-featured {
+  border-color: var(--theme);
+}
+.pricing-custom-wrap .package-card .package-card-head {
+  width: 100%;
+  margin-bottom: 18px;
+  min-width: 0;
+}
+.pricing-custom-wrap .package-card .package-duration {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.pricing-custom-wrap .package-card .ribbon,
+.pricing-custom-wrap .package-card .silver-ribbon,
+.pricing-custom-wrap .package-card .gold-ribbon {
+  flex: 0 0 auto;
+  right: 8px !important;
+  top: -70px;
+}
+.pricing-custom-wrap .package-card .pricing-list {
+  min-height: 245px;
+}
+.pricing-custom-wrap .package-card .pricing-list i {
+  font-size: 16px;
+  line-height: 1;
+}
+.pricing-custom-wrap .package-card .package-price-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border1);
+  margin: 24px 0 18px;
+}
+.pricing-custom-wrap .package-card .package-actual-price {
+  margin-bottom: 14px;
+}
+.pricing-custom-wrap .package-card .package-offer-row h4 {
+  font-size: 34px;
+  line-height: 1.1;
+}
+.pricing-custom-wrap .package-card .package-offer-row .month {
+  font-size: 16px;
+  font-weight: 600;
+}
+.pricing-custom-wrap .package-card .package-purchase-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  margin: 18px auto 0;
+  padding: 9px 20px;
+  border: 1px solid var(--white);
+  border-radius: 6px;
+  color: var(--white);
+  font-weight: 700;
+}
+.pricing-custom-wrap .package-card .package-purchase-btn:hover {
+  border-color: var(--theme);
+  color: var(--theme);
+}
+@media (max-width: 1399px) {
+  .pricing-custom-wrap .package-card .package-offer-row h4 {
+    font-size: 28px;
+  }
+}
+@media (max-width: 991px) {
+  .pricing-custom-wrap .package-card {
+    min-height: initial;
+  }
+}
+
 .search-wrap {
   width: 100%;
   height: 100%;
@@ -4092,6 +4199,14 @@ input.main-search-input::placeholder {
   stroke: var(--theme);
   fill: var(--theme);
 }
+.team-staf-item .trans-social li a i {
+  color: #454750;
+  font-size: 20px;
+  transition: all 0.4s;
+}
+.team-staf-item .trans-social li a:hover i {
+  color: var(--theme);
+}
 @media (max-width: 1399px) {
   .team-staf-item .thumb {
     width: 140px;
@@ -4182,6 +4297,7 @@ input.main-search-input::placeholder {
   background: #0e0e0e;
 }
 .team-staft-slidewrap011 .comm .cmn-textslide {
+  color: var(--white) !important;
   font-size: 55px !important;
   font-weight: 400 !important;
 }
@@ -4192,6 +4308,105 @@ input.main-search-input::placeholder {
   color: var(--theme2);
 }
 @media (max-width: 991px) {
+  body.meliora-home .team-staft-slidewrap011 .pricing-title .stitle,
+  body.meliora-home .team-staft-slidewrap011 .comm .cmn-textslide {
+    color: #f7f7f7 !important;
+    opacity: 1 !important;
+    text-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+  }
+
+  body.meliora-home .team-staft-slidewrap011 .comm .serial-badge {
+    color: var(--white) !important;
+  }
+
+  body.meliora-home .pricing-section {
+    background: #0e0e0e;
+    color: var(--white);
+  }
+
+  body.meliora-home .pricing-section .pricing-title .stitle,
+  body.meliora-home .pricing-section .package-card h4,
+  body.meliora-home .pricing-section .package-card .white,
+  body.meliora-home .pricing-section .package-card .white-clr {
+    color: var(--white) !important;
+  }
+
+  body.meliora-home .pricing-section .package-card .pra-clr {
+    color: #d8d8d8 !important;
+  }
+
+  body.meliora-home .pricing-section .package-card {
+    background-color: #151515;
+  }
+
+  body.meliora-home .testimonial-version01-section.testimonial-version022-section {
+    background: #0e0e0e !important;
+    z-index: 1;
+  }
+
+  body.meliora-home .testimonial-version01-section .digital-solution,
+  body.meliora-home .testimonial-version01-section .container,
+  body.meliora-home .testimonial-version01-section .slider-button {
+    position: relative;
+    z-index: 2;
+  }
+
+  body.meliora-home .testimonial-version01-section {
+    padding-top: 54px !important;
+    padding-bottom: 76px !important;
+  }
+
+  body.meliora-home .testimonial-version01-section .digital-solution {
+    padding-bottom: 34px !important;
+  }
+
+  body.meliora-home .testimonial-version01-section .testimonial-zero-oneitem {
+    display: block !important;
+    padding: 24px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 18px;
+    background: #151515;
+    text-align: left !important;
+  }
+
+  body.meliora-home .testimonial-version01-section .testimonial-zero-oneitem .thumb,
+  body.meliora-home .testimonial-version01-section .testimonial-zero-oneitem .vector {
+    display: none !important;
+  }
+
+  body.meliora-home .testimonial-version01-section .testimonial-zero-oneitem .content {
+    padding-left: 0 !important;
+  }
+
+  body.meliora-home .testimonial-version01-section .testimonial-zero-oneitem .content p,
+  body.meliora-home .testimonial-version01-section .testimonial-zero-oneitem .content h6 {
+    color: var(--white) !important;
+  }
+
+  body.meliora-home .testimonial-version01-section .testimonial-zero-oneitem .content .icon {
+    font-size: 36px;
+  }
+
+  body.meliora-home .testimonial-version01-section .testimonial-zero-oneitem .content p {
+    font-size: 16px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.meliora-home .home-onetext {
+    padding-bottom: 8px !important;
+  }
+
+  body.meliora-home .footer-version-one .footer-topversion-one {
+    padding-top: 12px !important;
+    padding-bottom: 42px !important;
+  }
+
+  body.meliora-home .footer-version-one [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   .team-staft-slidewrap011 .comm .cmn-textslide {
     font-size: 36px !important;
     font-weight: 400 !important;
@@ -4422,6 +4637,699 @@ input.main-search-input::placeholder {
 .sponsor-wrap .swiper-slide.swiper-slide-active .brand-image {
   filter: initial;
   opacity: 1;
+}
+
+.meliora-mobile-home {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body.meliora-home {
+    background: #fafaf8;
+    color: #050505;
+  }
+
+  body.meliora-home .main {
+    background: #fafaf8;
+  }
+
+  body.meliora-home .line-shape,
+  body.meliora-home .hero-section-version2 {
+    display: none !important;
+  }
+
+  body.meliora-home .header-sectionv2,
+  body.meliora-home .header-sectionv2.header-fixed {
+    position: relative;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(5, 5, 5, 0.05);
+    box-shadow: 0 14px 34px rgba(5, 5, 5, 0.04);
+    z-index: 1000 !important;
+  }
+
+  body.meliora-home .header-section {
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  body.meliora-home .header-section .container {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  body.meliora-home .header-section .brand-logo {
+    width: 166px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+  }
+
+  body.meliora-home .header-section .brand-logo img {
+    width: 100%;
+    height: auto;
+  }
+
+  body.meliora-home .header-sectionv2 .search-trigger {
+    font-size: 27px !important;
+    color: #050505 !important;
+  }
+
+  body.meliora-home .header-sectionv2 .navbar-toggle-btn {
+    width: 38px;
+    height: 28px;
+  }
+
+  body.meliora-home .header-sectionv2 .navbar-toggle-btn span {
+    height: 2px;
+    background: #050505 !important;
+  }
+
+  body.meliora-home .header-section .main-navbar .navbar-toggle-item {
+    background: #ffffff;
+    border-top: 1px solid #eeeeee;
+    margin-top: 18px;
+    padding: 0 0 12px;
+  }
+
+  body.meliora-home .header-sectionv2 .custom-nav .contact-text,
+  body.meliora-home .header-sectionv2 .custom-nav button {
+    color: #050505 !important;
+  }
+
+  .meliora-mobile-home {
+    display: block;
+    background: #fafaf8;
+    color: #050505;
+    padding: 34px 0 44px;
+  }
+
+  .meliora-mobile-home a {
+    color: inherit;
+  }
+
+  .meliora-mobile-hero,
+  .meliora-mobile-services,
+  .meliora-mobile-cta,
+  .meliora-mobile-bottom {
+    width: calc(100% - 40px);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .meliora-mobile-hero {
+    position: relative;
+    padding-top: 30px;
+  }
+
+  .meliora-mobile-copy {
+    position: relative;
+    z-index: 2;
+    padding-left: 48px;
+  }
+
+  .meliora-mobile-copy h1 {
+    color: #050505;
+    font-size: 64px;
+    line-height: 0.95;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .meliora-mobile-copy p {
+    max-width: 420px;
+    margin: 18px 0 0;
+    color: #424242;
+    font-size: 22px;
+    line-height: 1.28;
+    font-weight: 500;
+  }
+
+  .meliora-mobile-copy p span {
+    position: relative;
+    color: #bde900;
+    font-weight: 600;
+  }
+
+  .meliora-mobile-copy p span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -7px;
+    height: 2px;
+    background: #d7ff00;
+    transform: rotate(-6deg);
+  }
+
+  .meliora-mobile-star {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    filter: brightness(0);
+    opacity: 0.95;
+  }
+
+  .meliora-mobile-star.star-one {
+    top: 0;
+    left: 16px;
+  }
+
+  .meliora-mobile-star.star-two {
+    top: 260px;
+    right: 66px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .meliora-mobile-arrow {
+    position: absolute;
+    top: 82px;
+    right: 28px;
+    width: 74px;
+    height: 74px;
+    object-fit: contain;
+    opacity: 0.45;
+  }
+
+  .meliora-mobile-visual {
+    position: relative;
+    overflow: hidden;
+    margin-top: 34px;
+    border-radius: 28px;
+    background: #0a0a0a;
+    box-shadow: 0 24px 56px rgba(5, 5, 5, 0.14);
+  }
+
+  .meliora-mobile-visual img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .meliora-mobile-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 16px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .meliora-mobile-dots span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #8b8b8b;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
+  }
+
+  .meliora-mobile-dots span.active {
+    background: #d7ff00;
+  }
+
+  .meliora-mobile-services {
+    margin-top: 44px;
+  }
+
+  .meliora-mobile-kicker {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #2a2a2a;
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+  }
+
+  .meliora-mobile-kicker span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #d7ff00;
+    flex: 0 0 auto;
+  }
+
+  .meliora-mobile-services h2 {
+    margin-top: 18px;
+    color: #050505;
+    font-size: 30px;
+    line-height: 1.15;
+    font-weight: 900;
+    text-transform: none;
+  }
+
+  .meliora-mobile-service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+  }
+
+  .meliora-service-card {
+    min-height: 138px;
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr) 38px;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 18px;
+    border: 1px solid #e4e4e4;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 12px 34px rgba(5, 5, 5, 0.05);
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .meliora-service-card:hover,
+  .meliora-service-card:focus-visible {
+    transform: translateY(-3px);
+    border-color: #d7ff00;
+    box-shadow: 0 18px 40px rgba(5, 5, 5, 0.08);
+  }
+
+  .meliora-service-icon {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: #f4f4f2;
+    color: #050505;
+    font-size: 28px;
+  }
+
+  .meliora-service-icon i {
+    color: #050505;
+  }
+
+  .meliora-service-copy {
+    display: grid;
+    gap: 7px;
+  }
+
+  .meliora-service-copy strong {
+    color: #050505;
+    font-size: 18px;
+    line-height: 1.15;
+    font-weight: 900;
+  }
+
+  .meliora-service-copy small {
+    color: #5f5f5f;
+    font-size: 14px;
+    line-height: 1.35;
+    font-weight: 500;
+  }
+
+  .meliora-service-arrow {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    align-self: center;
+    border-radius: 50%;
+    background: #d7ff00;
+    color: #050505;
+    transform: rotate(45deg);
+  }
+
+  .meliora-service-arrow i {
+    color: #050505;
+    font-size: 16px;
+  }
+
+  .meliora-mobile-cta {
+    position: relative;
+    display: grid;
+    grid-template-columns: 178px minmax(0, 1fr);
+    gap: 34px;
+    align-items: center;
+    margin-top: 34px;
+    padding: 34px 38px;
+    overflow: hidden;
+    border-radius: 18px;
+    background: #0b0b0b url("../img/footer/footer-version1bg.png") center/cover no-repeat;
+    box-shadow: 0 24px 54px rgba(5, 5, 5, 0.2);
+  }
+
+  .meliora-cta-mark {
+    position: relative;
+    min-height: 128px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(255, 255, 255, 0.28);
+  }
+
+  .meliora-cta-mark img {
+    width: 118px;
+    height: 118px;
+    object-fit: contain;
+    opacity: 0.95;
+  }
+
+  .meliora-cta-mark span {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #d7ff00;
+    transform: rotate(45deg);
+    font-size: 44px;
+  }
+
+  .meliora-cta-mark span i {
+    color: #d7ff00;
+  }
+
+  .meliora-cta-kicker {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #cfcfcf;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+  }
+
+  .meliora-cta-kicker img {
+    width: 18px;
+    height: 18px;
+    object-fit: contain;
+  }
+
+  .meliora-cta-copy h2 {
+    margin-top: 18px;
+    color: #ffffff;
+    font-size: 38px;
+    line-height: 1.04;
+    font-weight: 900;
+    text-transform: none;
+  }
+
+  .meliora-cta-copy p {
+    margin: 12px 0 0;
+    color: #bcbcbc;
+    font-size: 17px;
+    line-height: 1.35;
+  }
+
+  .meliora-cta-copy a {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 20px;
+    padding: 13px 26px;
+    border-radius: 9px;
+    background: #d7ff00;
+    color: #050505;
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 800;
+  }
+
+  .meliora-cta-copy a i {
+    color: #050505;
+    transform: rotate(45deg);
+  }
+
+  .meliora-cta-dots {
+    position: absolute;
+    right: 26px;
+    bottom: 24px;
+    width: 74px;
+    opacity: 0.52;
+  }
+
+  .meliora-mobile-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 24px;
+    color: #1a1a1a;
+  }
+
+  .meliora-mobile-bottom a {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: #1a1a1a;
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  .meliora-mobile-bottom a:first-child {
+    font-weight: 800;
+  }
+
+  .meliora-mobile-bottom a span {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #f0f0ef;
+    color: #050505;
+  }
+
+  .meliora-mobile-bottom i {
+    color: #050505;
+  }
+
+  .meliora-bottom-divider {
+    width: 1px;
+    height: 34px;
+    background: #c9c9c9;
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 575px) {
+  body.meliora-home .header-section {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
+  body.meliora-home .header-section .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  body.meliora-home .header-section .brand-logo {
+    width: 164px;
+    height: 60px;
+  }
+
+  .meliora-mobile-home {
+    padding-top: 26px;
+  }
+
+  .meliora-mobile-hero,
+  .meliora-mobile-services,
+  .meliora-mobile-cta,
+  .meliora-mobile-bottom {
+    width: calc(100% - 28px);
+  }
+
+  .meliora-mobile-copy {
+    padding-left: 44px;
+  }
+
+  .meliora-mobile-copy h1 {
+    font-size: 58px;
+  }
+
+  .meliora-mobile-copy p {
+    max-width: 300px;
+    font-size: 21px;
+  }
+
+  .meliora-mobile-star.star-one {
+    top: 0;
+    left: 18px;
+  }
+
+  .meliora-mobile-star.star-two {
+    top: 252px;
+    right: 76px;
+  }
+
+  .meliora-mobile-arrow {
+    top: 80px;
+    right: 30px;
+    width: 72px;
+    height: 72px;
+  }
+
+  .meliora-mobile-visual {
+    margin-top: 30px;
+    border-radius: 26px;
+  }
+
+  .meliora-mobile-visual img {
+    height: 208px;
+  }
+
+  .meliora-mobile-service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .meliora-service-card {
+    min-height: 118px;
+    grid-template-columns: 62px minmax(0, 1fr) 38px;
+  }
+
+  .meliora-mobile-cta {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 28px 30px;
+  }
+
+  .meliora-cta-mark {
+    min-height: 96px;
+    justify-content: flex-start;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+    padding-bottom: 20px;
+  }
+
+  .meliora-cta-mark img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .meliora-cta-copy h2 {
+    font-size: 34px;
+  }
+
+  .meliora-mobile-bottom {
+    align-items: flex-start;
+  }
+
+  .meliora-mobile-bottom a {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 430px) {
+  .meliora-mobile-copy h1 {
+    font-size: 54px;
+  }
+
+  .meliora-mobile-copy {
+    padding-left: 40px;
+  }
+
+  .meliora-mobile-copy p {
+    font-size: 20px;
+  }
+
+  .meliora-mobile-arrow {
+    top: 76px;
+    right: 20px;
+    width: 66px;
+    height: 66px;
+  }
+
+  .meliora-mobile-star.star-two {
+    right: 58px;
+  }
+
+  .meliora-mobile-services h2 {
+    font-size: 28px;
+  }
+
+  .meliora-service-card {
+    grid-template-columns: 58px minmax(0, 1fr) 36px;
+    gap: 13px;
+    padding: 18px 16px;
+  }
+
+  .meliora-service-icon {
+    width: 58px;
+    height: 58px;
+    font-size: 25px;
+  }
+
+  .meliora-service-copy strong {
+    font-size: 17px;
+  }
+
+  .meliora-service-copy small {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  body.meliora-home .header-section .brand-logo {
+    width: 138px;
+  }
+
+  body.meliora-home .header-sectionv2 .search-trigger {
+    font-size: 24px !important;
+  }
+
+  body.meliora-home .header-sectionv2 .navbar-toggle-btn {
+    width: 34px;
+  }
+
+  .meliora-mobile-copy {
+    padding-left: 0;
+    padding-top: 42px;
+  }
+
+  .meliora-mobile-copy h1 {
+    font-size: 48px;
+  }
+
+  .meliora-mobile-arrow {
+    top: 68px;
+    right: 12px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .meliora-mobile-star.star-one {
+    top: 6px;
+    left: 0;
+  }
+
+  .meliora-mobile-star.star-two {
+    top: 282px;
+    right: 52px;
+    width: 32px;
+    height: 32px;
+  }
+
+  .meliora-mobile-visual img {
+    height: 188px;
+  }
+
+  .meliora-mobile-bottom {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .meliora-bottom-divider {
+    display: none;
+  }
 }
 
 .scrolling-wrap {
@@ -4688,4 +5596,225 @@ input.main-search-input::placeholder {
   height: 100%;
   content: "";
   background: rgba(0, 0, 0, 0.4);
+}
+
+body.service-page .service-section,
+body.service-page .watch-version01,
+body.service-page main > .digital-solution,
+body.service-page .pricing-section,
+body.service-page .service-related,
+body.service-page .testimonial-version01-section {
+  display: none !important;
+}
+
+.meliora-services-page {
+  background: #0e0e0e;
+}
+.meliora-services-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 48px;
+}
+.meliora-services-intro p {
+  max-width: 620px;
+  color: var(--pra-clr);
+  font-size: 18px;
+  line-height: 1.7;
+}
+.meliora-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.meliora-service-panel {
+  position: relative;
+  min-height: 360px;
+  padding: 32px;
+  overflow: hidden;
+  border: 1px solid var(--border1);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #171717, #0f0f0f);
+}
+.meliora-service-panel-icon {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border-radius: 14px;
+  background: rgba(227, 255, 4, 0.12);
+  color: var(--theme);
+  font-size: 28px;
+}
+.meliora-service-panel-icon i {
+  color: var(--theme);
+}
+.meliora-service-panel .service-index {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  color: rgba(255, 255, 255, 0.12);
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1;
+}
+.meliora-service-panel h3 {
+  margin-bottom: 14px;
+  color: var(--white);
+  font-size: 28px;
+  line-height: 1.2;
+}
+.meliora-service-panel p {
+  margin-bottom: 22px;
+  color: var(--pra-clr);
+  line-height: 1.65;
+}
+.meliora-service-panel ul {
+  display: grid;
+  gap: 12px;
+}
+.meliora-service-panel li {
+  display: flex;
+  gap: 10px;
+  color: #dedede;
+  line-height: 1.35;
+}
+.meliora-service-panel li i {
+  margin-top: 3px;
+  color: var(--theme);
+}
+.meliora-services-workflow {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 28px;
+  margin-top: 36px;
+  padding: 34px;
+  border: 1px solid var(--border1);
+  border-radius: 18px;
+  background: #121212;
+}
+.meliora-workflow-copy h3,
+.meliora-services-cta h3 {
+  margin: 12px 0;
+  color: var(--white);
+  font-size: 34px;
+  line-height: 1.15;
+}
+.meliora-workflow-copy p,
+.meliora-services-cta p {
+  color: var(--pra-clr);
+  line-height: 1.7;
+}
+.meliora-workflow-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.meliora-workflow-steps div {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: #181818;
+}
+.meliora-workflow-steps strong {
+  color: var(--theme);
+}
+.meliora-workflow-steps span {
+  color: var(--white);
+  line-height: 1.35;
+}
+.meliora-services-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 36px;
+  padding: 34px;
+  border-radius: 18px;
+  background: url("../img/footer/footer-version1bg.png") center/cover no-repeat, #111;
+}
+.meliora-services-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.meliora-services-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 8px;
+  color: var(--white);
+  font-weight: 800;
+}
+.meliora-services-actions a.themebg {
+  color: var(--black);
+}
+.meliora-services-actions a i {
+  transform: rotate(45deg);
+}
+
+@media (max-width: 991px) {
+  .meliora-services-intro,
+  .meliora-services-workflow {
+    grid-template-columns: 1fr;
+  }
+  .meliora-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .meliora-service-panel {
+    min-height: initial;
+  }
+  .meliora-services-cta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 575px) {
+  .meliora-services-page {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  .meliora-services-intro {
+    gap: 18px;
+    margin-bottom: 28px;
+  }
+  .meliora-services-intro p {
+    font-size: 16px;
+  }
+  .meliora-service-panel,
+  .meliora-services-workflow,
+  .meliora-services-cta {
+    padding: 22px;
+    border-radius: 14px;
+  }
+  .meliora-service-panel .service-index {
+    top: 22px;
+    right: 22px;
+    font-size: 42px;
+  }
+  .meliora-service-panel h3 {
+    font-size: 24px;
+  }
+  .meliora-workflow-copy h3,
+  .meliora-services-cta h3 {
+    font-size: 27px;
+  }
+  .meliora-workflow-steps {
+    grid-template-columns: 1fr;
+  }
+  .meliora-services-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .meliora-services-actions a {
+    width: 100%;
+    justify-content: center;
+  }
 }/*# sourceMappingURL=main.css.map */
